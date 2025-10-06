@@ -65,4 +65,54 @@ validation_ds = keras.utils.image_dataset_from_directory(
 ##  Model Architecture
 
 
+**Model Architecture**
+
+  ![Model Architecture](dogcat/predicted_results/Model%20_Architecture.png)
+
 ---
+
+## Training Process
+
+```python
+
+# Define CNN model
+
+model = Sequential([
+    Input(shape=(256, 256, 3)),
+
+    Conv2D(32, kernel_size=3, activation='relu'),
+    MaxPooling2D(),
+
+    Conv2D(64, kernel_size=3, activation='relu'),
+    MaxPooling2D(),
+
+    Conv2D(128, kernel_size=3, activation='relu'),
+    MaxPooling2D(),
+
+    Flatten(),
+
+    Dense(128, activation='relu'),
+    Dense(64, activation='relu'),
+    Dense(1, activation='sigmoid')
+])
+
+# Compile the model
+
+model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+
+# Train the model
+
+history = model.fit(train_ds,epochs=10,validation_data=validation_ds)  
+
+```
+---
+
+##  Model Performance
+
+
+**Model Performance**
+
+  ![Model_Performance](dogcat/predicted_results/Model%20_Architecture.png)
+
+---
+
