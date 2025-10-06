@@ -59,3 +59,10 @@ validation_ds = keras.utils.image_dataset_from_directory(
     batch_size=32,
     image_size=(256, 256)
 )
+```
+---
+
+##  Model Architecture
+
+
+---
