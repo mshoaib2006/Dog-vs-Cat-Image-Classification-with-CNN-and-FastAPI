@@ -16,8 +16,6 @@ The trained model is deployed with a **FastAPI backend** for real-time predictio
 - [Model Performance](#model-performance)  
 - [Sample Predictions](#sample-predictions)  
 - [API Usage](#api-usage)  
-- [Project Structure](#project-structure)  
- 
 
 ---
 
@@ -60,10 +58,10 @@ validation_ds = keras.utils.image_dataset_from_directory(
     image_size=(256, 256)
 )
 ```
+
 ---
 
 ##  Model Architecture
-
 
 **Model Architecture**
 
@@ -112,7 +110,39 @@ history = model.fit(train_ds,epochs=10,validation_data=validation_ds)
 
 **Model Performance**
 
-  ![Model_Performance](dogcat/predicted_results/Model%20_Architecture.png)
+
+```
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10, 5))
+plt.plot(history.history['accuracy'], color='red', label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], color='blue', label='Validation Accuracy')
+plt.title('Model Accuracy')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(loc='lower right')
+plt.grid(True)
+plt.show() 
+
+```
+
+  ![Model_Performance](dogcat/predicted_results/Model_%20Performance.png)
+
 
 ---
 
+## Sample Predictions
+
+ ![Sample Predictions](dogcat/predicted_results/predicted1.png)
+
+---
+
+## API Usage
+
+
+ ![ API Usage](dogcat/predicted_results/predicted_results4.png)
+
+
+
+ ![ API Usage](dogcat/predicted_results/predicted_results5.png)
+
+---
